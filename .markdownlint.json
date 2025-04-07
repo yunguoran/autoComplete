@@ -1,0 +1,15 @@
+{
+  "line-length": false,
+  "ul-indent": {
+    "indent": 4
+  },
+  "no-duplicate-header": {
+    "siblings_only": true
+  },
+  "MD033": {
+    "allowed_elements": [
+      "details",
+      "summary"
+    ]
+  }
+}
