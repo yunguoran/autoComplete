@@ -5,6 +5,13 @@ import { authenticator } from 'otplib';
 const secretKey = ''; // 替换为你的实际 secret key
 
 function autoFillInputs() {
+  // 检查 sessionStorage，防止重复自动登录
+  if (sessionStorage.getItem('autoLoginAttempted')) {
+    console.log('Auto login already attempted in this session.');
+    return;
+  }
+  sessionStorage.setItem('autoLoginAttempted', 'true');
+
   // 自动填充用户名输入框
   const usernameInput = document.getElementById('Enter user name');
   if (usernameInput) {
