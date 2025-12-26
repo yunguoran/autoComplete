@@ -1,8 +1,11 @@
 # AutoComplete
 
-AutoComplete 是一个 Chrome 浏览器插件，用于自动填充某桌面的用户名、密码和 2FA 验证码，并自动点击登录按钮。
+AutoComplete 是一个 Chrome 浏览器插件，目前有两个功能：
 
-## Windows 下使用方法
+- 实时屏蔽所有网易系网页的横幅广告。
+- 自动填充云桌面的用户名、密码和 2FA 验证码，并自动点击登录按钮。
+
+## 使用方法
 
 - 打开项目目录中的 `manifest.json` 文件，找到以下代码片段：
 
@@ -17,7 +20,7 @@ AutoComplete 是一个 Chrome 浏览器插件，用于自动填充某桌面的�
     ],
     ```
 
-- 修改 `host_permissions` 和 `content_scripts.matches` 的值为某桌面的 [URL](https://en.wikipedia.org/wiki/URL)。
+- 修改 `host_permissions` 和 `content_scripts.matches` 的值为云桌面的 [URL](https://en.wikipedia.org/wiki/URL) 以及网易有道查词和翻译的 URL（以逗号分隔，支持通配符）。
 - 打开项目目录中的 `content.js` 文件，找到以下代码片段：
 
    ```js
@@ -39,14 +42,22 @@ AutoComplete 是一个 Chrome 浏览器插件，用于自动填充某桌面的�
    }
    ```
 
-- 修改以下内容为你的实际信息并保存
+- 修改以下内容为你的实际信息并保存。
     - `secretKey`：替换为你的 2FA 密钥。
     - `usernameInput.value`：替换为你的用户名。
     - `passwordInput.value`：替换为你的密码。
-- 重新打包项目
+- 本地打包项目。
     - 确保你已经安装了 [NVM for Windows](https://github.com/coreybutler/nvm-windows) 和 [Node.js](https://nodejs.org/en)，`Node.js` 版本为 `v22.14.0`。
-    - 使用 [npm](https://www.npmjs.com/) 在本地自行安装以下依赖，安装方法请自行研究。
-        ![alt text](./images/dependency.png)
+    - 执行 `npm install` 在本地安装以下依赖。
+        - `buffer@6.0.3`。
+        - `crypto-browserify@3.12.1`。
+        - `otplib@12.0.1`。
+        - `process@0.11.10`。
+        - `safe-buffer@5.2.1`。
+        - `stream-browserify@3.0.0`。
+        - `vm-browserify@1.1.2`。
+        - `webpack-cli@6.0.1`。
+        - `webpack@5.98.0`。
     - 使用 `npx webpack` 打包项目。
 - 打包完成后，生成的文件会位于 `dist` 文件夹中。
 
@@ -61,5 +72,6 @@ AutoComplete 是一个 Chrome 浏览器插件，用于自动填充某桌面的�
 
 ## 注意
 
+- Chrome 是跨平台的，因此该插件是平台无关的。
 - 此项目仅测试了 [Happy path](https://en.wikipedia.org/wiki/Happy_path)，如有任何疑问请自行研究。
 - 使用前请仔细阅读使用说明，使用不当由此造成的任何损失与本人无关。

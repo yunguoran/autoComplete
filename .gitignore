@@ -17,7 +17,6 @@ backup/
 Thumbs.db
 
 # IDE files
-.vscode/
 .idea/
 
 # Environment files

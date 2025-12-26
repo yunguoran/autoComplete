@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "autoComplete",
   "version": "1.0",
-  "description": "Automatically complete username, password and token.",
+  "description": "Automatically login to Lakala Vdesk and remove ads of Youdao.",
   "permissions": ["storage"],
   "host_permissions": [""],
   "content_scripts": [
